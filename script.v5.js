@@ -1,8 +1,10 @@
-// principais loops while and for; selecionar vários elementos por um array e o que é um arrays
+
 //coletar todos os elementos com a mesma classe
 var rowPaciente    = document.getElementsByClassName('paciente');
-
-for (var posicaoAtual = 0; posicaoAtual <= rowPaciente.length -1; posicaoAtual++) {
+//variável de controle
+var posicaoAtual    = 0;
+//neste caso o tamanho da array é 2, apesar da última posição ser 1, por isso usamos o -1
+while(posicaoAtual <= rowPaciente.length -1 // nossa condição){
 
     var trPaciente  = rowPaciente[posicaoAtual];
     // o getElementsByClassName sempre traz um array de informações
@@ -22,4 +24,5 @@ for (var posicaoAtual = 0; posicaoAtual <= rowPaciente.length -1; posicaoAtual++
     } else {
         console.log("Você, por menor que seja, não tem zero de altura :S")
     }
-};
+    posicaoAtual ++; //incrementar
+}
