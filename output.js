@@ -1,16 +1,15 @@
 //coletar todos os elementos com a mesma classe
 var rowPaciente    = document.getElementsByClassName('paciente');
 
-// também é possível passar uma função anônima dentro do argumento de uma função
-// veja que a função precisa de um argumento, chamado trPaciente e como mesmo é passado no arquivo array.js ele é apenas chamado dentro da função anônima abaixo
-walksArray(rowPaciente, function (trPaciente){
-    // ao criar uma função dentro de outra, criamos um citação de primeira classe pois o mesmo pode ser usado como argumento
-    // o getElementsByClassName sempre traz um array de informações
+walksArray(rowPaciente, printName);
+
+// comportamentos são funções
+function printName (trPaciente){
     var tdNome      = trPaciente.getElementsByClassName('info-nome')[0];
     var tdPeso      = trPaciente.getElementsByClassName('info-peso')[0];
     var tdAltura    = trPaciente.getElementsByClassName('info-altura')[0];
 
-    var pacienteAtual    = {
+    var pacienteAtual = {
         nome : tdNome.textContent,
         peso : tdPeso.textContent,
         altura : tdAltura.textContent,
@@ -25,12 +24,5 @@ walksArray(rowPaciente, function (trPaciente){
             }
         }};
 
-
-    // é preciso declarar essa variável por conta do código abaixo que substitue o valor do conteúdo pelo valor do imc e a mesma é retornada dentro do atributo getImc
-    var imc = pacienteAtual.getImc();
-
-    var tdImc = trPaciente.getElementsByClassName('info-imc')[0];;
-        tdImc.textContent = imc.toFixed(2);
-
-        console.log(imc);
-})
+    console.log(pacienteAtual.nome);
+}
