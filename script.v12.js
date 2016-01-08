@@ -1,8 +1,5 @@
-var botao = document.getElementById('calcula-imcs');
-//caso você queira mais de um evento num clique, use o método addEventListener() o mesmo recebe dois argumentos, o primeiro é o evento e o segundo é a função
-//também é possível criar outros eventos e comportamentos com addEventListener
-
-botao.addEventListener('click', /*função para calcular IMC*/ function(){
+//função para calcular IMC
+function calcAllImc (){
     //coletar todos os elementos com a mesma classe
     var rowPaciente    = document.getElementsByClassName('paciente');
 
@@ -39,5 +36,21 @@ botao.addEventListener('click', /*função para calcular IMC*/ function(){
 
             console.log(imc);
     })
-});
+}
 
+var botao = document.getElementById('calcula-imcs');
+//neste caso não é necessário o () por que o browser vai chamar a função
+/*
+botao.onclick = calcAllImc;
+botao.onclick = function() {
+    console.log("Calculando...");
+}
+*/
+//caso você queira mais de um evento num clique, use o método addEventListener() o mesmo recebe dois argumentos, o primeiro é o evento e o segundo é a função
+//também é possível criar outros eventos e comportamentos com addEventListener
+botao.addEventListener('click', calcAllImc);
+/*
+botao.addEventListener('click', function (){
+    console.log('Calculando...');
+})
+*/
